@@ -1,0 +1,25 @@
+{
+  "name": "fis3-parser-freemarker",
+  "description": "A parser plugin for fis3 to compile freemarker(ts) file.",
+  "version": "0.0.1",
+  "author": "kxbrand <kxbrand@qq.com>",
+  "homepage": "http://www.kxbrand.net/",
+  "keywords": [
+    "kx",
+    "kxbrand",
+    "fis",
+    "fis3",
+    "freemarker"
+  ],
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/kxbrand/fis3-parser-freemarker.git"
+  },
+  "engines": {
+    "node": ">=0.8.0"
+  },
+  "dependencies": {
+    "freemarker.js": "1.2.1"
+  }
+}
