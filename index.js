@@ -1,23 +1,38 @@
 'use strict';
 var Freemarker = require('freemarker.js');
 var root = fis.project.getProjectPath();
+var views = fis.get('freemarker.views') || "views";
 var fm = new Freemarker({
   viewRoot: root,
   options: {
     /** for fmpp */
   }
 });
+function _getInitData(filePath){
+  var json,initFile = fis.file(root,filePath);
+  if(initFile.exists()){
+    try {
+      json = JSON.parse(initFile.getContent());
+    } catch (e) {
+      json = {};
+    }
+  }
+  return json;
+}
 function mockData(file){
-  var mockJson,mockFile = fis.file(root,file.subpathNoExt+'.mock.json');
+  var data = {},mockJson,mockFile = fis.file(root,file.subpathNoExt+'.mock');
   if(mockFile.exists()){
     try {
       mockJson = JSON.parse(mockFile.getContent());
+      for(var i = 0;i < mockJson.init.length;i++){
+        data = fis.util.merge(data,_getInitData(mockJson.init[i]));
+      }
     } catch (e) {
     }
-    return mockJson;
   }else{
-    return {};
+    data = {};
   }
+  return data;
 }
 module.exports = function(content, file, conf){
   try {

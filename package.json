@@ -1,7 +1,7 @@
 {
   "name": "fis3-parser-freemarker",
   "description": "A parser plugin for fis3 to compile freemarker(ts) file.",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "author": "kxbrand <kxbrand@qq.com>",
   "homepage": "http://www.kxbrand.net/",
   "keywords": [
